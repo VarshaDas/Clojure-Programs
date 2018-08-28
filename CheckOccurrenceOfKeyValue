@@ -1,0 +1,11 @@
+(ns myfirst.keyvalueexist)
+
+;;This program checks for the occurrence of a particular key-value pair
+
+(defn example [key value]
+  (def demokeys (hash-map "z" 1 "b" 2 "a" 3 "d" 8))
+  (if (contains? demokeys key)
+    (if (= (get demokeys key) value)      
+      (println "["key value"]" "exists")
+      (println "["key value"]" "does not exist"))))
+(example "d" 2)
