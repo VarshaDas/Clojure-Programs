@@ -1,0 +1,19 @@
+(ns myfirst.findallkeyvalues)
+
+;;This program will print all the key-value pairs from a collection of hash-maps
+
+(defn example []
+  (def demokeys (hash-map "z" 1 "b" 2 "a" 3))
+  (def demokeys1 (hash-map "a" 2 "h" 5 "i" 7))
+  (def demokeys2 (hash-map "p" 6 "q" 2 "r" 1))
+  (def demokeys3 (hash-map "x" 3 "y" 15 "z" 11))
+  
+  (def keylist (keys (merge-with + demokeys demokeys1 demokeys2 demokeys3)))
+  (def mapmerge (merge-with + demokeys demokeys1 demokeys2 demokeys3))
+  (dotimes  [n (count keylist)]
+    (def pickkey (atom (nth keylist n)))
+    (println (find mapmerge @pickkey ))
+    ))
+
+
+(example)
