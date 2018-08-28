@@ -1,0 +1,16 @@
+(ns myfirst.addkeyvalue)
+
+;;This programs add a new key-value pair to existing hashmap if and only 
+;;that key-value pair does not appear
+
+(defn example [key value]
+  (def demokeys (hash-map "z" 1 "b" 2 "a" 3 "d" 8))
+  (if (contains? demokeys key)
+    (if (not= (get demokeys key) value)
+      (do(dissoc demokeys key)
+        (println (merge demokeys (hash-map key value))))
+      )
+    )
+  
+  )
+(example "z" 122)
