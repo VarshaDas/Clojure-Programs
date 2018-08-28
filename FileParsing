@@ -1,0 +1,22 @@
+(ns myfirst.fileread)
+
+;;The following program will read through a text file and search for a particular
+;;user given word and print the entire line where the word is found.
+
+(defn Example []
+  (with-open [rdr (clojure.java.io/reader "C:\\Users\\VD056735\\Documents\\Example.txt")]
+    (def bulk (reduce conj [] (line-seq rdr)))
+    (def userword (read-line))
+    (loop [x 0]      
+      (when (< x (count bulk))              
+        (def line (atom (nth bulk x)))     
+        (loop [y 0]
+          (when (< y (count (clojure.string/split @line #"\s")))            
+            (def word (nth (clojure.string/split @line #"\s")y))
+            (if( = word userword)
+              (println @line)
+              )
+            (recur (inc y))))        
+            (recur (inc x))))))
+
+(Example)
