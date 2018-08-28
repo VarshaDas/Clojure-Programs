@@ -1,0 +1,19 @@
+(ns myfirst.mapdemo)
+
+;;This program will print the respective value for the given key from a set of hash maps
+;;enclosed within vector
+
+(defn example []
+  (def demokeys (hash-map "z" 1 "b" 2 "a" 3))
+  (def demokeys1 (hash-map "a" 2 "h" 5 "i" 7))
+  (def demokeys2 (hash-map "p" 6 "q" 2 "r" 1))
+  (def demokeys3 (hash-map "x" 3 "y" 15 "z" 12))
+  
+  (dotimes [x 3]
+    (def mymap (nth (conj (vector demokeys) demokeys1 demokeys2 demokeys3) x))
+    (if (contains? mymap "p") 
+      (println (get mymap "p")))
+    ))
+
+
+(example)
