@@ -1,7 +1,7 @@
 (ns myfirst.addkeyvalue)
 
-;;This programs add a new key-value pair to existing hashmap if and only 
-;;that key-value pair does not appear
+;;This programs add a new key-value pair to existing HashMap if and only 
+;;it is not present in the HashMap
 
 (defn example [key value]
   (def demokeys (hash-map "z" 1 "b" 2 "a" 3 "d" 8))
