@@ -1,0 +1,25 @@
+(ns myfirst.setoperations)
+
+;; The following function queries through a set of maps to retrieve employee name(s) based
+;;on department id(user input) and department name(user input) based on employee name after performing a join of 
+;;both the sets
+
+(defn setjoinop[deptid empname]
+  
+  
+(def employees #{{:empname "betsy" :empid 101 :deptid "90"}
+                   {:empname "jake"  :empid 102 :deptid "20"}
+                   {:empname "josie" :empid 103 :deptid "90"}}) 
+  
+(def dept #{{:deptid "90" :deptname "HR" :manager "Smith"}
+              {:deptid "50" :deptname "Manufacturing" :manager "Agatha"}
+              {:deptid "20" :deptname "IT" :manager "Bob"}})
+  
+  
+  
+(def myset (clojure.set/join employees dept))
+(def byempname (clojure.set/index myset [:deptid]))
+(def bydeptname (clojure.set/index myset [:empname]))
+(println "Employee name :" (map :empname (get byempname {:deptid deptid})))
+(println "Department name :" (map :deptname (get bydeptname {:empname empname})))
+(setjoinop "90" "jake")
